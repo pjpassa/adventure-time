@@ -1,1 +1,1 @@
-web: gunicorn atus.wsgi --log-file -
+web: atus/gunicorn atus.wsgi --log-file -

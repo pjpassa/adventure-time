@@ -22,7 +22,7 @@ class TimespentListAPIView(generics.ListAPIView):
 
 class TimespentDetailAPIView(generics.RetrieveAPIView):
     serializer_class = TimespentSerializer
-    queryset = TimeSpent.objectz.all()
+    queryset = TimeSpent.objects.all()
 
 
 # Create your views here.

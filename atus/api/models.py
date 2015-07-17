@@ -10,7 +10,7 @@ class Respondent(models.Model):
 
 
 class TimeSpent(models.Model):
-    respondent = models.ForeignKey(Respondent)
+    respondent = models.ForeignKey(Respondent, related_name="time_spent")
     activity = models.CharField(max_length=7)
     activity_label = models.CharField(max_length=100)
     time_spent = models.IntegerField()

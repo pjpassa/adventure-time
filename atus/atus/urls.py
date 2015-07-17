@@ -15,12 +15,12 @@ Including another URLconf
 """
 from django.conf.urls import include, url
 from django.contrib import admin
+from api import views
 from api.views import TimespentListAPIView,TimespentDetailAPIView
 
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
     url(r'^timespent/$', TimespentListAPIView.as_view(), name="timespent_list"),
     url(r'^timespent/(?P<pk>\d+)/$', TimespentDetailAPIView.as_view(), name="timespent_detail"),
-
-
+    url(r'^respondent/(?P<pk>\d+)/$', views.RespondentDetailView.as_view(), name="respondent_detail"),
 ]

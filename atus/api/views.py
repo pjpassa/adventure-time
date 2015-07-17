@@ -1,18 +1,10 @@
 
 from django.shortcuts import render
-from rest_framework import serializers
-from rest_framework import generics, serializers, pagination
+from rest_framework import generics, serializers
 from rest_framework.generics import ListAPIView, RetrieveAPIView
 from api.models import Respondent, TimeSpent
 import django_filters
 
-
-class PageSizePagination(pagination.BasePagination):
-    page_size=100
-    max_page_size=100
-
-    def paginate_queryset(self, queryset, request, view=None):
-        pass
 
 class TimespentSerializer(serializers.ModelSerializer):
 
@@ -34,8 +26,6 @@ class TimespentDetailAPIView(generics.RetrieveAPIView):
 
 
 class RespondentDetailSerializer(serializers.ModelSerializer):
-
-    #time_spent = serializers.PrimaryKeyRelatedField(queryset=TimeSpent.objects.all())
 
     class Meta:
         model = Respondent

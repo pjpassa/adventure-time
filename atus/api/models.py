@@ -10,6 +10,7 @@ class Respondent(models.Model):
     activity_time_spent = JSONField()
 
 
+
 class TimeSpent(models.Model):
     respondent = models.ForeignKey(Respondent)
     activity = models.CharField(max_length=7)

@@ -2,7 +2,7 @@ from .settings import *
 import os
 
 DEBUG = False
-SECRET_KEY = os.environ['SECRET_KEY']
+# SECRET_KEY = os.environ['SECRET_KEY']
 
 BLACKLIST = ['debugtoolbar', 'django_extensions']
 INSTALLED_APPS = tuple([app for app in INSTALLED_APPS if app not in BLACKLIST])

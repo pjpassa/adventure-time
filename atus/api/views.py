@@ -34,7 +34,7 @@ class RespondentSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Respondent
-        fields = ["id", "statistical_weight", "variables", "time_spent"]
+        fields = ["id", "statistical_weight", "variables", "activity_time_spent"]
 
 
 

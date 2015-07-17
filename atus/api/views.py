@@ -58,4 +58,3 @@ class RespondentDetailView(RetrieveAPIView):
 class RespondentListView(ListAPIView):
     queryset = Respondent.objects.all()
     serializer_class = RespondentListSerializer
-    pagination_class = pagination.PageNumberPagination

@@ -11,8 +11,10 @@ class PageSizePagination(pagination.BasePagination):
     page_size=100
     max_page_size=100
 
-class TimespentSerializer(serializers.ModelSerializer):
+    def paginate_queryset(self, queryset, request, view=None):
+        pass
 
+class TimespentSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = TimeSpent
@@ -56,4 +58,4 @@ class RespondentDetailView(RetrieveAPIView):
 class RespondentListView(ListAPIView):
     queryset = Respondent.objects.all()
     serializer_class = RespondentListSerializer
-    pagination_class = PageSizePagination
+    pagination_class = pagination.PageNumberPagination

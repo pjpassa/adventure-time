@@ -23,4 +23,5 @@ urlpatterns = [
     url(r'^timespent/$', TimespentListAPIView.as_view(), name="timespent_list"),
     url(r'^timespent/(?P<pk>\d+)/$', TimespentDetailAPIView.as_view(), name="timespent_detail"),
     url(r'^respondent/(?P<pk>\d+)/$', views.RespondentDetailView.as_view(), name="respondent_detail"),
+    url(r'^respondent/$', views.RespondentListView.as_view(), name="respondent_list")
 ]

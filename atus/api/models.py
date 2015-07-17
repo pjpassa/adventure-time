@@ -7,6 +7,7 @@ import django_filters
 class Respondent(models.Model):
     statistical_weight = models.FloatField()
     variables = JSONField()
+    activity_time_spent = JSONField()
 
 
 class TimeSpent(models.Model):

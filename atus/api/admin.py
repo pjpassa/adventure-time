@@ -4,4 +4,4 @@ from django.contrib import admin
 from api.models import Respondent
 
 admin.site.register(Respondent)
-admin.site.register(TimeSpent)
+

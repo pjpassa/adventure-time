@@ -28,28 +28,3 @@ class RespondentDetailView(RetrieveAPIView):
 class RespondentListView(ListAPIView):
     queryset = Respondent.objects.all()
     serializer_class = RespondentListSerializer
-
-
-"""
-class TimespentListAPIView(generics.ListAPIView):
-    serializer_class = TimespentSerializer
-    queryset = TimeSpent.objects.all()
-
-
-class TimespentDetailAPIView(generics.RetrieveAPIView):
-    serializer_class = TimespentSerializer
-    queryset = TimeSpent.objects.all()
-
-
-class TimespentDetailSerializer(serializers.ModelSerializer):
-
-    class Meta:
-        model = TimeSpent
-        fields = ["id", "activity", "time_spent", "respondent", "ac"]
-
-class TimespentListSerializer(serializers.ModelSerializer):
-
-    class Meta:
-        model = TimeSpent
-        fields = ["id", "activity", "time_spent"]
-"""

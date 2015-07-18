@@ -10,14 +10,14 @@ class Respondent(models.Model):
     activity_time_spent = JSONField(blank=True)
 
 
-class TimeSpent(models.Model):
+"""class TimeSpent(models.Model):
     respondent = models.ForeignKey(Respondent, related_name="time_spent")
     activity = models.CharField(max_length=7)
     activity_label = models.CharField(max_length=100)
     time_spent = models.IntegerField()
 
 
-"""class TimesSpentFilter(django_filters.FilterSet):
+   class TimesSpentFilter(django_filters.FilterSet):
     # You can set up a filter on a model based on the fields.
 
     class Meta:

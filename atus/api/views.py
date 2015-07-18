@@ -1,15 +1,12 @@
 
 from django.shortcuts import render
-from rest_framework import serializers
-from rest_framework import generics
-from rest_framework import serializers
-from rest_framework.generics import ListAPIView
+from rest_framework import generics, serializers
+from rest_framework.generics import ListAPIView, RetrieveAPIView
 from api.models import Respondent, TimeSpent
 import django_filters
 
 
 class TimespentSerializer(serializers.ModelSerializer):
-
 
     class Meta:
         model = TimeSpent
@@ -28,16 +25,26 @@ class TimespentDetailAPIView(generics.RetrieveAPIView):
 # Create your views here.
 
 
-class RespondentSerializer(serializers.ModelSerializer):
-
-    #time_spent = serializers.PrimaryKeyRelatedField(queryset=TimeSpent.objects.all())
+class RespondentDetailSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Respondent
-        fields = ["id", "statistical_weight", "variables", "activity_time_spent"]
+        fields = ["id", "tu_case_id", "statistical_weight", "variables", "activity_time_spent"]
+
+
+class RespondentListSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = Respondent
+        fields = ["id", "tu_case_id"]
 
 
 
-class RespondentDetailView(ListAPIView):
+class RespondentDetailView(RetrieveAPIView):
     queryset = Respondent.objects.all()
-    serializer_class = RespondentSerializer
+    serializer_class = RespondentDetailSerializer
+
+
+class RespondentListView(ListAPIView):
+    queryset = Respondent.objects.all()
+    serializer_class = RespondentListSerializer

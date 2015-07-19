@@ -1,9 +1,14 @@
-
+from django.http import HttpResponse
 from django.shortcuts import render
 from rest_framework import generics, serializers
-from rest_framework.generics import ListAPIView, RetrieveAPIView
+from rest_framework.generics import ListAPIView, RetrieveAPIView, GenericAPIView
 from api.models import Respondent
+import json
 import django_filters
+
+
+def home_view(request):
+    return HttpResponse(Home)
 
 
 class RespondentDetailSerializer(serializers.ModelSerializer):
@@ -28,3 +33,12 @@ class RespondentDetailView(RetrieveAPIView):
 class RespondentListView(ListAPIView):
     queryset = Respondent.objects.all()
     serializer_class = RespondentListSerializer
+
+
+
+
+
+
+
+
+

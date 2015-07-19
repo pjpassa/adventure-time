@@ -13,9 +13,9 @@ def load_respondent_data(x, y):
     with open("../data/atusresp_2014/atusresp_2014.dat") as file:
         data = csv.DictReader(file)
         for line in data:
-            Respondent.objects.create(tu_case_id = line.pop("TUCASEID"),
-                                             statistical_weight= line.pop("TUFINLWGT"),
-                                             variables= line)
+            Respondent.objects.create(tu_case_id=line.pop("TUCASEID"),
+                                             statistical_weight=line.pop("TUFINLWGT"),
+                                             variables=line)
 
 
 class Migration(migrations.Migration):

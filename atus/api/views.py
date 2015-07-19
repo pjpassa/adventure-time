@@ -1,7 +1,7 @@
 from statistics import mean
 from django.http import HttpResponse
 from django.shortcuts import render
-from rest_framework import generics, serializers
+from rest_framework import generics, serializers, filters
 from rest_framework.generics import ListAPIView, RetrieveAPIView, GenericAPIView
 from rest_framework.response import Response
 from api.models import Respondent
@@ -82,10 +82,14 @@ class RespondentListView(ListAPIView):
 class ActivityDetailView(GenericAPIView):
     queryset = Respondent.objects.all()
     serializer_class = RespondentDetailSerializer
+    filter_backend = (filters.DjangoFilterBackend,)
+    filter_fields = {'statistical_weight': ['exact','lt', 'gt','lte', 'gte']}
 
 
     def get_object(self):
-        queryset = self.filter_queryset(self.get_queryset())
+        queryset = self.get_queryset()
+        query_parms = {key: value[0] for key, value in self.request.query_params.items()}
+        queryset = queryset.filter(**query_parms)
         avg = weighted_average_minutes(queryset, self.kwargs[self.lookup_field])
         num = queryset.count()
         title = key[self.kwargs[self.lookup_field]]

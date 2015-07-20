@@ -106,6 +106,7 @@ class ActivityDetailView(GenericAPIView):
 
 
 def weighted_average_minutes(data, activity_code):
+    x = 0
     weight = 0
     weighted_minutes = 0
     for instance in data:

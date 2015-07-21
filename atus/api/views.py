@@ -33,7 +33,6 @@ key = {'tucaseid': 'household', 'TUFINLWGT': 'weight', 'TRYHHCHILD': 'Age_of_you
            't140103':'waiting_associated.w/religious&spiritual_activities', 't140105':'religious_education_act', 't149999':'religous_spirtual_actNEC',
            't150101':'computer_use', 't150102':'organizing/preparing', 't150103':'reading', 't150104':'telephone_calls(except_hotline_counseling)', 't150105':'writing',
            't150106':'fundraising', 't150199':'administrative&support_activeNEC', 't150201':'food_prep,presentation,clean-up', 't150202':'collecting&delivering_clothing&other_goods', 't150203':'providing_car', 't150204':'teaching,leading,counseling,mentoring', 't150299':'social_service&care_activitiesNEC', 't150301':'building_houses,wildlifesites&other_structures', 't150302':'indoor&outdoor_maintenance,repair&clean-up', 't150399':'indoor&outdoor_maintenance,building&clean-up_activities', 't150401':'performing', 't150402':'serving_volunteering_events&cultural_activities', 't150499':'participating_performance&cultural_activitiesNEC',
-
            't150501':'attending_meetings,conferences,training', 't150599':'attending_meetings,conferences&trainingNEC', 't150601':'public_heatlh_activities', 't150602':'public_safety_activities', 't150699':'public_health_safety_activitiesNEC', 't150701':'waiting_associated_volunteer_activities', 't150801':'security_procedures_related_volunteer_act', 't159999':'volunteer_activitiesNEC', 't160101':'telephone_calls_to/from_family_members', 't160102':'telephone_calls_to/from_friends/neighbors/acquaintances', 't160103':'telephone_calls_to/from_education,services,providers', 't160104':'telephone_calls_to/from_salespeople', 't160105':'telephone_calls_to/from_professional/personal_care_svcs_providers', 't160106':'telephone_calls_to/from_household_services_providers', 't160107':'telephone_calls_to/from_paid_child/adult_car_providers', 't160108':'telephone_calls_to/from_government_officials'
     ,'t160199':'telephone_callsNEC', 't160201':'waiting_associated_with_telephone_calls',
            't169999':'telephone_callsNEC', 't180101':'travel_related_personal_car', 't180199':'travel_related_personal_carNEC', 't180201':'travel_related_housework', 't180202':'travel_related_food/drink_prep/clean-up/presentation', 't180203':'travel_related_interior_maintenance/repair&decoration', 't180204':'travel_related_exterior_maintenance/repair/decoration', 't180205':'travel_related_lawn/garden/houseplantcare',
@@ -93,7 +92,6 @@ class ActivityDetailView(GenericAPIView):
                "average_minutes": avg,
                "number_of_respondents": num,
                "titles": title}
-
         return Response(obj)
 
     def get(self, request, pk, format=None):
